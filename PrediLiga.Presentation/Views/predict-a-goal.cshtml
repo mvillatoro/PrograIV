@@ -3,23 +3,48 @@
         <div role="main" class="container theme-showcase">
             <ul class="nav navbar-nav navbar-right">
                 <a href="/my-profile" class="btn btn-primary">Profile</a>
-                <a href="/admin-settings" class="btn btn-primary">Admin Settings</a>
+                <a href="/my-table" class="btn btn-primary">Return to My Table</a>
                 <a href="/" class="btn btn-danger">Log Out</a>
             </ul>
         </div>
     </div>
-    <table>
+    <table class="table table-bordered" width=100>
         <tr>
             <td>Day </td>
-            <td> </td>
+            <td> 1</td>
+        </tr>
+        <tr>
             <td>Date </td>
-            <td> </td>
+            <td> 24/08/2014</td>
+        </tr>
+        <tr>
             <td>Time </td>
-            <td> </td>
+            <td> 15:00</td>
+        </tr>
+        <tr>
             <td>Stadium </td>
-            <td> </td>
-            
-
-        </tr> 
+            <td> Camp nou</td>
+        </tr>
     </table>
+    <form ng-submit="allCool()">
+        <table class="table table-bordered">
+            <tr>
+                <td> Equipo Local</td>
+                <td> Marcador Local</td>
+                <td> Marcador Visita</td>
+                <td> Equipo Visita</td>
+            </tr>
+            <tr>
+                <td> FC Barcelona</td>
+                <td> <input ng-model="MarcadorLocal" type="number" min="0" max="99"  class="form-control" required autofocus /></td>
+                <td> <input ng-model="MarcadorVisita" type="number" min="0" max="99" class="form-control" required autofocus /></td>
+                <td> Elche FC</td>
+            </tr>
+        </table>
+        <div>
+            <button class="btn btn-success " type="submit" style="float: right;" tabindex="7">Predict-A-Goal</button>
+        </div>
+        <div class="alert alert-success" role="alert" ng-show="ShowMessage" tabindex="7"> Your prediction has been saved!</div>
+    </form>
+    
 </div>

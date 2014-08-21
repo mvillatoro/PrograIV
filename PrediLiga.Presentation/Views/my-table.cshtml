@@ -16,6 +16,7 @@
         </div>
     </div>
     <div>
+        <h1>My Table</h1>
         <table class="table table-hover">
             <tr>
                 <td> </td> 
@@ -29,16 +30,42 @@
                 <td> </td>
             </tr>
             <tr ng-repeat=" liga in misligas">
-                <td>{{liga.id}}</td>
-                <td>{{liga.nombre}}</td>
-                <td>{{liga.proximo_Fecha}}</td>
-                <td>{{liga.proximo_Encuentro}}</td>
-                <td>{{liga.aciertos}}</td>
-                <td>{{liga.puntos}}</td>
+                <td>{{liga.idLiga}}</td>
+                <td>{{liga.league}}</td>
+                <td>{{liga.proximafecha}}</td>
+                <td>{{liga.proximoEncuentro}}</td>
+                <td>{{liga.acierto}}</td>
+                <td>{{liga.pts}}</td>
+                <td><a class=" btn btn-success" href="/predict-a-goal"> Predict-A-Goal</a></td>   
                 <td>Ver Calendario</td>
-                <td class="danger">Disable League</td>
+                <td><a class=" btn btn-danger"> Unfollow</a></td>   
+            </tr>
+        </table>
+        
+        <h1>Recomended Leagues</h1>
+        
+        <table class="table table-hover">
+            <tr>
+                <td> </td>
+                <td>Liga</td>
+                <td>Proximo partido</td>
+                <td>Proximos Encuentros</td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
             </tr>
 
+            <tr>    
+            <tr ng-repeat=" liga in NotFollowing">
+                <td>{{liga.idLiga}}</td>
+                <td>{{liga.league}}</td>
+                <td>{{liga.proximafecha}}</td>
+                <td>{{liga.proximoEncuentro}}</td>
+                <td>Ver Calendario</td>
+                <form ng-submit="PushToMyTable()">
+                    <td><button class="btn btn-primary" type="submit">  Follow League</button></td>
+                </form>
+            </tr>
         </table>
 </div>
 </div>
