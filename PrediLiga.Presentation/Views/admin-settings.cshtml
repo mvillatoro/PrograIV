@@ -19,10 +19,11 @@
         </tr>
         <tr>
             <td>01</td>
-            <td><a href="/leagues" > Italiana </a></td>
+            <td><a href="/leagues" > Española </a></td>
             <td>24/08/2014</td>
-            <td>Milan Vs. Jueventus</td>
+            <td>FC Barcelona vs. Elche FC</td>
             <td class ="">Ver Calendario</td>
+            <td><button class="btn btn-primary" type="submit">  Edit</button></td>  
             <td><button class="btn btn-danger" type="submit">  Disable League</button></td>    
         </tr>
         <tr ng-repeat=" liga in misligas">
@@ -31,6 +32,7 @@
             <td>{{liga.proximo_Fecha}}</td>
             <td>{{liga.proximo_Encuentro}}</td>
             <td class="">Ver Calendario</td>
+            <td><button class="btn btn-primary" type="submit">  Edit</button></td>  
             <td><button class="btn btn-danger" type="submit">  Disable League</button></td>    
         </tr>
     </table>
@@ -73,6 +75,7 @@
                 <td>0</td>
                 <td>0</td>
                 <td>Ver Calendario</td>
+                <td><button class="btn btn-primary" type="submit">  Edit</button></td>  
                 <td><button class="btn btn-danger" type="submit"> Disable Match</button></td>    
             </tr>
         </table>
@@ -94,6 +97,7 @@
             <td>24/08/2014</td>
             <td>Milan Vs. Jueventus</td>
             <td class="">Ver Calendario</td>
+            <td><button class="btn btn-primary" type="submit">  Edit</button></td>  
             <td><button class="btn btn-danger" type="submit">  Disable Match</button></td>    
         </tr>
         <tr ng-repeat=" liga in Matches">
@@ -102,6 +106,7 @@
             <td>{{liga.proximo_Fecha}}</td>
             <td>{{liga.proximo_Encuentro}}</td>
             <td class="">Ver Calendario</td>
+            <td><button class="btn btn-primary" type="submit">  Edit</button></td>  
             <td><button class="btn btn-danger" type="submit">  Disable Match</button></td>    
         </tr>
     </table>
