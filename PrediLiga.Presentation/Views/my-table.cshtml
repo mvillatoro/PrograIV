@@ -17,17 +17,28 @@
     </div>
     <div>
         <table class="table table-hover">
-        <tr>
-            <td> </td> 
-            <td>Liga</td>
-            <td>Proximo partido</td>
-            <td>Proximos Encuentros</td>
-            <td>Aciertos</td>
-            <td>Puntos</td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-        </tr>
-            </table>
+            <tr>
+                <td> </td> 
+                <td>Liga</td>
+                <td>Proximo partido</td>
+                <td>Proximos Encuentros</td>
+                <td>Aciertos</td>
+                <td>Puntos</td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr ng-repeat=" liga in misligas">
+                <td>{{liga.id}}</td>
+                <td>{{liga.nombre}}</td>
+                <td>{{liga.proximo_Fecha}}</td>
+                <td>{{liga.proximo_Encuentro}}</td>
+                <td>{{liga.aciertos}}</td>
+                <td>{{liga.puntos}}</td>
+                <td>Ver Calendario</td>
+                <td class="danger">Disable League</td>
+            </tr>
+
+        </table>
 </div>
 </div>

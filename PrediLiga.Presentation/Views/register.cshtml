@@ -1,4 +1,4 @@
-﻿
+﻿<!--
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
             <form role="form">
@@ -7,37 +7,37 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+                            <input ng-model="first_name" type="text" tabindex="1" class="form-control input-lg" placeholder="First Name" required autofocus />
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
+                            <input type="text" ng-model="last_name" class="form-control input-lg" placeholder="Last Name" required autofocus tabindex="2" />
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Display Name" tabindex="3">
+                    <input type="text" ng-model="display_name" class="form-control input-lg" placeholder="Display Name" required autofocus tabindex="3" />
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+                    <input type="text" ng-model="email" class="form-control input-lg" placeholder="Email Address" required autofocus tabindex="4" />
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+                            <input type="password" ng-model="password" class="form-control input-lg" placeholder="Password" required autofocus tabindex="5" />
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+                            <input type="password" ng-model="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" required autofocus tabindex="6" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-4 col-sm-3 col-md-3">
                         <span class="button-checkbox">
-                            <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                            <button type="submit" class="btn" data-color="info" tabindex="7">I Agree</button>
                             <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
                         </span>
                     </div>
@@ -45,12 +45,28 @@
                         By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
                     </div>
                 </div>
-
+            </form>
+            <form ng-summit="pushUser(first_name, last_name, display_name, email, password)">
                 <hr class="colorgraph">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                    <div class="col-xs-12 col-md-6"><input type="submit" value="Register" ng-disabled="!(first_name && last_name && display_name && email && password && password_confirmation)" disabled class=" btn btn-primary btn-block btn-lg" tabindex="7"></div>
                     <div class="col-xs-12 col-md-6"><a href="/login" class="btn btn-success btn-block btn-lg">Sign In</a></div>
                 </div>
             </form>
         </div>
     </div>
+
+    -->
+
+<div>
+    <input ng-model="first_name" type="text" class="form-control" placeholder="First Name" required autofocus />
+    <input ng-model="last_name" type="text" class="form-control" placeholder="Last Name" required autofocus />
+    <input ng-model="display_name" type="text" class="form-control" placeholder="Display Name" required autofocus />
+    <input ng-model="email" type="text" class="form-control" placeholder="Email" pattern="" required autofocus />
+    <input ng-model="password" type="password" class="form-control" placeholder="Password" required autofocus />
+    <input ng-model="confirm_password" type="password" class="form-control" placeholder="Confirm Password" required autofocus />
+    <form ng-submit="aux()">
+        <button class="btn btn-success" type="submit" ng-disabled="!(first_name && last_name && display_name && email && password && confirm_password)" disabled> Register</button>
+        <a class =" btn btn-success" href="/login"> Log In</a>
+    </form>
+</div>

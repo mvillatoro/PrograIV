@@ -491,6 +491,7 @@
     <Content Include="Views\my-table.cshtml" />
     <Content Include="Views\admin-settings.cshtml" />
     <Content Include="Views\predict-a-goal.cshtml" />
+    <Content Include="Views\leagues.cshtml" />
     <None Include="Views\soccerfield.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

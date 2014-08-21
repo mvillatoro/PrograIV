@@ -13,19 +13,15 @@
             <td>Liga</td>
             <td>Proximo partido</td>
             <td>Proximos Encuentros</td>
-            <td>Aciertos</td>
-            <td>Puntos</td>
             <td> </td>
             <td> </td>
             <td> </td>
         </tr>
         <tr>
             <td>01</td>
-            <td>Italiana</td>
+            <td><a href="/leagues" > Italiana </a></td>
             <td>24/08/2014</td>
             <td>Milan Vs. Jueventus</td>
-            <td>2</td>
-            <td>3</td>
             <td class ="">Ver Calendario</td>
             <td class="btn btn-primary" align="center" onclick="EditLeague()"> Edit</td>
             <td class="danger">Disable League</td>
@@ -35,9 +31,8 @@
             <td>{{liga.nombre}}</td>
             <td>{{liga.proximo_Fecha}}</td>
             <td>{{liga.proximo_Encuentro}}</td>
-            <td>{{liga.aciertos}}</td>
-            <td>{{liga.puntos}}</td>
-            <td>Ver Calendario</td>
+            <td class="">Ver Calendario</td>
+            <td class="btn btn-primary" align="center" onclick="EditLeague()"> Edit</td>
             <td class="danger">Disable League</td>
         </tr>
     </table>
@@ -46,13 +41,12 @@
     </form>
     <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" ng-show="ShowMessage">
         <h3>Add New League</h3>
-        <input ng-model="id" type="text" class="form-control" placeholder="ID" required autofocus />
         <input ng-model="league" type="text" class="form-control" placeholder="League Name" required autofocus />
         <input ng-model="nextmatch" type="text" class="form-control" placeholder="Next Match" required autofocus />
         <input ng-model="hits" type="text" class="form-control" placeholder="Hits" required autofocus />
         <input ng-model="points" type="text" class="form-control" placeholder="Points" required autofocus />
         <form ng-submit="pushLeague(id, league, nextmatch, hits, points)">
-            <button class="btn btn-success" type="submit" ng-disabled="!(id && league && nextmatch && hits && points)"> Done</button>
+            <button class="btn btn-success" type="submit" ng-disabled="!(league && nextmatch && hits && points)"> Done</button>
         </form>
         <form ng-submit="AddLiga()">
             <button class="btn btn-danger" type="submit"> Cancel</button>

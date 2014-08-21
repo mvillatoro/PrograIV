@@ -25,10 +25,55 @@ angular.module('app.controllers', [])
     .controller('LoginCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | Sign In';
         // TODO: Authorize a user
-        $scope.login = function () {
-            $location.path('/my-table');
-            return false;
+
+        $scope.ShowError = true;
+        $scope.login = function (user, password) {
+            var istrue = $scope.IsUser(user, password); 
+            if (istrue) {   
+                $location.path('/my-table');
+            } else {
+                $scope.ShowError = istrue; 
+                
+            }
         };
+
+        $scope.users = [];
+        var master = {
+            nombre: "Wade",
+            apellido: "Wilson",
+            usuario: "Admin",
+            correo: "mvilla2208",
+            password: "alpha",
+            esAdmin: true,
+            activo: true
+        }
+        var mortal = {
+            nombre: "Bruce",
+            apellido: "Wayne",
+            usuario: "br_wayne",
+            correo: "br_wayne@batman.dc",
+            password: "alfred",
+            esAdmin: false,
+            activo: true
+        }
+
+
+
+        $scope.users.push(master);
+        $scope.users.push(mortal);
+
+        $scope.IsUser = function (username, password)
+        {
+            var i;
+            for (i = 0; i < $scope.users.length ; i++) {
+                if (username === $scope.users[i].usuario) {
+                    if (password === $scope.users[i].password) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
@@ -46,22 +91,36 @@ angular.module('app.controllers', [])
         // Path: /register
     .controller('RegisterCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | Register';
-        $scope.test = function () {
-            $location.path('/register');
-            return false;
-        };
+        $scope.aux = function() {
+            $location.path('/login');
+        }
     }])
         // Path: /my-table
     .controller('MyTableCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | My Table';
         $scope.misligas = [];
-
         $scope.logout = function () {
             $location.path('/');
             return false;
         };
+    }])
+            // Path: /admin-settings
+    .controller('AdminSettingsCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'AngularJS SPA | Admin Settings';
 
-        $scope.addLeague = function(id, league, nextmatch, hits, points) {
+        $scope.misligas = [];
+
+        var liga1 = {
+            id: 1,
+            nombre: "Inglesa",
+            proximo_Fecha: new Date(),
+            proximo_Encuentro: "Man U vs Arsenal",
+            aciertos: 4,
+            puntos: 6
+        };
+        $scope.misligas.push(liga1);
+
+        $scope.addLeague = function (id, league, nextmatch, hits, points) {
             var leagueid = {
                 liga: id,
                 nombre: league,
@@ -70,20 +129,16 @@ angular.module('app.controllers', [])
                 aciertos: hits,
                 puntos: points,
                 activo: true
-        }
+            }
             return leagueid;
         }
 
         $scope.pushLeague = function (id, league, nextmatch, hits, points) {
-            var liston = addLeague(misligas.length + 1, league, nextmatch, hits, points)
+            var ides= $scope.misligas.length + 1;
+            var liston = $scope.addLeague(ides, league, nextmatch, hits, points);
             $scope.misligas.push(liston);
             $scope.AddLiga();
         }
-    }])
-            // Path: /admin-settings
-    .controller('AdminSettingsCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
-        $scope.$root.title = 'AngularJS SPA | Admin Settings';
-        
         //Muestra el modo de edicion de liga
         $scope.AddLiga = function () {
             if ($scope.ShowMessage === true) {
@@ -118,6 +173,11 @@ angular.module('app.controllers', [])
             // Path: /forgot-password
     .controller('PredictAGoalCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | Forgot Password';
+
+    }])
+            // Path: /leagues
+    .controller('LeaguesCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'AngularJS SPA | Leagues';
 
     }])
 

@@ -5,7 +5,8 @@
                 <div class="logo ">
                     <img src="http://media.virbcdn.com/cdn_images/crop_300x169/98/PageImage-483910-4354353-Screenshot20130103at32331PM.png" alt="" />
                 </div>
-                <form class="form-signin" ng-submit="login(userName, password)">
+                <div class="alert alert-danger" role="alert" ng-hide="ShowError">Wrong User name or Password</div>
+                <form ng-submit="login(userName, password)">
                     <div class="form-group">
                         <input ng-model="userName" type="text" class="form-control" placeholder="Username or Email" required autofocus />
                     </div>

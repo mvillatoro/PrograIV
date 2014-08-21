@@ -56,7 +56,13 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                layout: 'basic',
                templateUrl: '/views/predict-a-goal',
                controller: 'PredictAGoalCtrl'
-             })
+            })
+            .state('leagues', {
+                url: '/leagues',
+                layout: 'basic',
+                templateUrl: '/views/leagues',
+                controller: 'LeaguesCtrl'
+            })
             .state('otherwise', {
                 url: '*path',
                 templateUrl: '/views/404',
