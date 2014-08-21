@@ -9,29 +9,58 @@
         </div>
     </div>
     <div>
+        <h1>Leagues X</h1>
         <table class="table">
             <tr>
                 <td> </td>
-                <td>Liga</td>
-                <td>Proximo partido</td>
-                <td>Proximos Encuentros</td>
-                <td>Aciertos</td>
-                <td>Puntos</td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
+                <td>Team</td>
+                <td>Played Games</td>
+                <td>Games Won</td>
+                <td>Games Tied</td>
+                <td>Games Lost</td>
+                <td>Goals in Favor</td>
+                <td>Goals Against</td>
+                <td>Goal Difference</td>
+                <td>Points</td>
             </tr>
             <tr>
-                <td>01 </td>
-                <td>Italiana</td>
-                <td>24/08/2014</td>
-                <td>Milan vs. Inter</td>
-                <td>8</td>
-                <td>16</td>
                 <td> </td>
-                <td class="btn-success"><a class="btn-link " href="/predict-a-goal">Predict-A-Goal</a></td>
-                <td class="btn-primary"> Calendario</td>
+                <td>FC Barcelona</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr ng-repeat=" liga in teams">
+                <td> </td>
+                <td>{{liga.nombre}}</td>
+                <td>{{liga.jj}}</td>
+                <td>{{liga.jg}}</td>
+                <td>{{liga.je}}</td>
+                <td>{{liga.jp}}</td>
+                <td>{{liga.gf}}</td>
+                <td>{{liga.gc}}</td>
+                <td>{{liga.dg}}</td>
+                <td>{{liga.pts}}</td>
+
             </tr>
         </table>
+        <form ng-submit="edicion()">
+            <button class="btn btn-success" type="submit" style="float: right;" ng-disabled="ShowMessage" disabled>Add Team</button>
+        </form>
+        <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" ng-show="ShowMessage">
+            <h3>Add New League</h3>
+            <input ng-model="teamName" type="text" class="form-control" placeholder="Team Name" required autofocus />
+            <form ng-submit="pushTeam(0, teamName, 0, 0, 0, 0, 0, 0, 0, 0)">
+                <button class="btn btn-success" type="submit" ng-disabled="!(teamName)"> Done</button>
+            </form>
+            <form ng-submit="edicion()">
+                <button class="btn btn-danger" type="submit"> Cancel</button>
+            </form>
+        </div>
     </div>
 </div>

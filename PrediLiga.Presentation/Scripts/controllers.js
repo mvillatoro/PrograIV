@@ -5,7 +5,7 @@
 
 angular.module('app.controllers', [])
 
-    // Path: /
+        // Path: /
     .controller('HomeCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA Template for Visual Studio';
         $scope.$on('$viewContentLoaded', function () {
@@ -13,7 +13,7 @@ angular.module('app.controllers', [])
         });
     }])
 
-    // Path: /about
+        // Path: /about
     .controller('AboutCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | About';
         $scope.$on('$viewContentLoaded', function () {
@@ -21,7 +21,7 @@ angular.module('app.controllers', [])
         });
     }])
 
-    // Path: /login
+        // Path: /login
     .controller('LoginCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | Sign In';
         // TODO: Authorize a user
@@ -97,6 +97,7 @@ angular.module('app.controllers', [])
             $location.path('/login');
         }
     }])
+
         // Path: /my-table
     .controller('MyTableCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | My Table';
@@ -149,9 +150,9 @@ angular.module('app.controllers', [])
 
         var liga3 = {
             idLiga: 2,
-            league: "Hondureña",
+            league: "Española",
             proximafecha: "24 / 08 / 2014",
-            proximoEncuentro: "Olanchano vs. Patepluma",
+            proximoEncuentro: " FC Barcelona vs. Elche FC",
             acierto: 0,
             pts: 0
         }
@@ -162,16 +163,18 @@ angular.module('app.controllers', [])
 
 
     }])
-            // Path: /admin-settings
+
+        // Path: /admin-settings
     .controller('AdminSettingsCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | Admin Settings';
 
         $scope.misligas = [];
+        $scope.Matches = [];
 
         var liga1 = {
             id: 1,
             nombre: "Inglesa",
-            proximo_Fecha: new Date(),
+            proximo_Fecha: "22/08/2014",
             proximo_Encuentro: "Man U vs Arsenal",
             aciertos: 4,
             puntos: 6
@@ -215,28 +218,107 @@ angular.module('app.controllers', [])
             }
         };
 
+        var match1 = {
+            id: 1,
+            liga: "Inglesa",
+            proximo_Fecha: "22/08/2014",
+            proximo_Encuentro: "Man U vs Arsenal"
+        };
+        $scope.Matches.push(match1);
+
+        $scope.addMatch = function (league, nextdate, nextmatch) {
+            var matchid = {
+                liga: league,
+                proximo_Fecha: nextmatch,
+                proximo_Encuentro: nextmatch,
+            }
+            return matchid;
+        }
+
+        $scope.pushMatch = function (league, nextdate, nextmatch) {
+            var ides = $scope.misligas.length + 1;
+            var liston = $scope.addMatch(ides, league, nextdate, nextmatch);
+            $scope.Matches.push(liston);
+            $scope.Editmode();
+        }
+
+        $scope.Editmode = function () {
+            if ($scope.ShowEdit === true) {
+                $scope.ShowEdit = false;
+            } else {
+                $scope.ShowEdit = true;
+            }
+        };
+
+
+
     }])
 
-            // Path: /predict-a-goal
+        // Path: /predict-a-goal
     .controller('PredictAGoalCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | Forgot Password';
-
-
         $scope.allCool = function () {
+            $scope.ShowMessage = true;
+            $location.path('/my-table');
+
+        };
+
+    }])
+
+        // Path: /leagues
+    .controller('LeaguesCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'AngularJS SPA | Leagues';
+
+        $scope.teams = [];
+
+        var team1 = {
+            id: 1,
+            nombre: "Elche FC",
+            jj:0,
+            jg:0,
+            je:0,
+            jp:0,
+            gf:0,
+            gc:0,
+            dg:0,
+            pts:0,  
+        };
+
+        $scope.teams.push(team1);
+
+        $scope.addTeam = function (id, name, gp, gw, gt, gl, gf, ga, gd, pt) {
+            var teamData= {
+                id: 2,
+                nombre: name,
+                jj: gp,
+                jg: gw,
+                je: gt,
+                jp: gl,
+                gf: gf,
+                gc: ga,
+                dg: gd,
+                pts: pt,
+            }
+            return teamData;
+        }
+
+        $scope.pushTeam = function (id, name, gp, gw, gt, gl, gf, ga, gd, pt) {
+            var ides = $scope.teams.length + 1;
+            var liston = $scope.addTeam(ides, name, gp, gw, gt, gl, gf, ga, gd, pt);
+            $scope.teams.push(liston);
+        }
+
+        $scope.edicion = function () {
             if ($scope.ShowMessage === true) {
                 $scope.ShowMessage = false;
             } else {
                 $scope.ShowMessage = true;
             }
         };
-    }])
-            // Path: /leagues
-    .controller('LeaguesCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
-        $scope.$root.title = 'AngularJS SPA | Leagues';
 
     }])
 
-    // Path: /error/404
+        // Path: /error/404
     .controller('Error404Ctrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'Error 404: Page Not Found';
         $scope.$on('$viewContentLoaded', function () {

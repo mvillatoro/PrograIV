@@ -23,8 +23,7 @@
             <td>24/08/2014</td>
             <td>Milan Vs. Jueventus</td>
             <td class ="">Ver Calendario</td>
-            <td class="btn btn-primary" align="center" onclick="EditLeague()"> Edit</td>
-            <td class="danger">Disable League</td>
+            <td><button class="btn btn-danger" type="submit">  Disable League</button></td>    
         </tr>
         <tr ng-repeat=" liga in misligas">
             <td>{{liga.id}}</td>
@@ -32,8 +31,7 @@
             <td>{{liga.proximo_Fecha}}</td>
             <td>{{liga.proximo_Encuentro}}</td>
             <td class="">Ver Calendario</td>
-            <td class="btn btn-primary" align="center" onclick="EditLeague()"> Edit</td>
-            <td class="danger">Disable League</td>
+            <td><button class="btn btn-danger" type="submit">  Disable League</button></td>    
         </tr>
     </table>
     <form ng-submit="AddLiga()">
@@ -52,21 +50,7 @@
             <button class="btn btn-danger" type="submit"> Cancel</button>
         </form>
     </div>
-    <form ng-submit="EditLeague()">
-        <button class="btn btn-success" type="submit" style="float: right;" ng-disabled="ShowEdit" disabled>Edit League</button>
-    </form>
-    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" ng-show="ShowEdit">
-        <h3>Edit League</h3>
-        <input ng-model="id" type="text" class="form-control" placeholder="ID" required autofocus />
-        <input ng-model="league" type="text" class="form-control" placeholder="League Name" required autofocus />
-        <input ng-model="nextmatch" type="text" class="form-control" placeholder="Next Match" required autofocus />
-        <form ng-submit="pushLeague(id, league, nextmatch, hits, points)">
-            <button class="btn btn-success" type="submit" ng-disabled="!(id && league && nextmatch && hits && points)"> Done</button>
-        </form>
-        <form ng-submit="EditLeague()">
-            <button class="btn btn-danger" type="submit"> Cancel</button>
-        </form>
-    </div>
+
     <div>
         <h1>Teams</h1>
         <table class="table table-hover">
@@ -86,12 +70,56 @@
                 <td>Milan</td>
                 <td>24/08/2014</td>
                 <td>Milan vs. Juventus</td>
+                <td>0</td>
+                <td>0</td>
                 <td>Ver Calendario</td>
-                <td class="danger">Omitir</td>
+                <td><button class="btn btn-danger" type="submit"> Disable Match</button></td>    
             </tr>
         </table>
     </div>
-
+    <h1>Next Games</h1>
+    <table class="table table-hover">
+        <tr>
+            <td> </td>
+            <td>Liga</td>
+            <td>Proximo partido</td>
+            <td>Proximos Encuentros</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>01</td>
+            <td><a href="/leagues"> Italiana </a></td>
+            <td>24/08/2014</td>
+            <td>Milan Vs. Jueventus</td>
+            <td class="">Ver Calendario</td>
+            <td><button class="btn btn-danger" type="submit">  Disable Match</button></td>    
+        </tr>
+        <tr ng-repeat=" liga in Matches">
+            <td>{{liga.id}}</td>
+            <td>{{liga.liga}}</td>
+            <td>{{liga.proximo_Fecha}}</td>
+            <td>{{liga.proximo_Encuentro}}</td>
+            <td class="">Ver Calendario</td>
+            <td><button class="btn btn-danger" type="submit">  Disable Match</button></td>    
+        </tr>
+    </table>
+    <form ng-submit="Editmode()">
+        <button class="btn btn-success" type="submit" style="float: right;" ng-disabled="ShowEdit" disabled>Add Game</button>
+    </form>
+    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" ng-show="ShowEdit">
+        <h3>Add New Match</h3>
+        <input ng-model="league" type="text" class="form-control" placeholder="League Name" required autofocus />
+        <input ng-model="nextdate" type="text" class="form-control" placeholder="Next Date" required autofocus />
+        <input ng-model="nextmatch" type="text" class="form-control" placeholder="Next Match" required autofocus />
+        <form ng-submit="pushMatch(0, league, nextdate, nextmatch)">
+            <button class="btn btn-success" type="submit" ng-disabled="!(league && nextdate && nextmatch)"> Done</button>
+        </form>
+        <form ng-submit="Editmode()">
+            <button class="btn btn-danger" type="submit"> Cancel</button>
+        </form>
+    </div>
 </div>
 
 <!-- liga id,

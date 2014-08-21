@@ -63,6 +63,12 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 templateUrl: '/views/leagues',
                 controller: 'LeaguesCtrl'
             })
+            .state('calendar', {
+                url: '/calendar',
+                layout: 'basic',
+                templateUrl: '/views/calendar',
+                controller: 'CalendarCtrl'
+            })
             .state('otherwise', {
                 url: '*path',
                 templateUrl: '/views/404',
