@@ -266,7 +266,7 @@ angular.module('app.controllers', [])
     }])
 
         // Path: /leagues
-    .controller('LeaguesCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('LeaguesCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window, $stateParams) {
         $scope.$root.title = 'AngularJS SPA | Leagues';
 
         $scope.teams = [];

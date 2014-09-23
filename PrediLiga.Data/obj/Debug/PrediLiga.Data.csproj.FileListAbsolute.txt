@@ -1,5 +1,0 @@
-C:\Users\Marito\Desktop\prediliga\PrediLiga.Data\bin\Debug\PrediLiga.Data.dll
-C:\Users\Marito\Desktop\prediliga\PrediLiga.Data\bin\Debug\PrediLiga.Data.pdb
-C:\Users\Marito\Desktop\prediliga\PrediLiga.Data\obj\Debug\PrediLiga.Data.csprojResolveAssemblyReference.cache
-C:\Users\Marito\Desktop\prediliga\PrediLiga.Data\obj\Debug\PrediLiga.Data.dll
-C:\Users\Marito\Desktop\prediliga\PrediLiga.Data\obj\Debug\PrediLiga.Data.pdb

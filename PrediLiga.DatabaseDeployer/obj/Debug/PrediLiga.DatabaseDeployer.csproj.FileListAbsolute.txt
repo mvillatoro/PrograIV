@@ -1,5 +1,0 @@
-C:\Users\Marito\Desktop\prediliga\PrediLiga.DatabaseDeployer\bin\Debug\PrediLiga.DatabaseDeployer.exe.config
-C:\Users\Marito\Desktop\prediliga\PrediLiga.DatabaseDeployer\bin\Debug\PrediLiga.DatabaseDeployer.exe
-C:\Users\Marito\Desktop\prediliga\PrediLiga.DatabaseDeployer\bin\Debug\PrediLiga.DatabaseDeployer.pdb
-C:\Users\Marito\Desktop\prediliga\PrediLiga.DatabaseDeployer\obj\Debug\PrediLiga.DatabaseDeployer.exe
-C:\Users\Marito\Desktop\prediliga\PrediLiga.DatabaseDeployer\obj\Debug\PrediLiga.DatabaseDeployer.pdb
